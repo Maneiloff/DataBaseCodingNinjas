@@ -1,4 +1,4 @@
-package step_definitions.createTecher;
+package Pages.createTeacher;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
