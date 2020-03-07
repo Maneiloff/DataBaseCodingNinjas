@@ -3,10 +3,14 @@ package runners;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import utilities.utilities.Config;
+import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
+
+import java.sql.SQLException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -14,7 +18,7 @@ import utilities.utilities.Driver;
         features="src/test/resources/features",
         glue="step_definitions",
         dryRun= false,
-        tags = "@march"
+        tags = "@ser"
 
 
 )
@@ -22,7 +26,15 @@ import utilities.utilities.Driver;
 public class CukesRunner {
 
     @BeforeClass
-    public static void  setUp(){
+    public static void  setUp()throws SQLException {
+
         Driver.getDriver().get(Config.getProperty("url"));
+        DBUtility.createConnection();
     }
+
+    @AfterClass
+    public static void tearDown() throws  SQLException{
+        DBUtility.close();
+    }
+
 }
