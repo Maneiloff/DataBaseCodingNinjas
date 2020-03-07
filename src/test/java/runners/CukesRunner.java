@@ -13,7 +13,8 @@ import utilities.utilities.Driver;
         plugin = {"html:target/cucumber-reports", "json:target/cucumber.json"},
         features="src/test/resources/features",
         glue="step_definitions",
-        dryRun= false
+        dryRun= true,
+        tags = "@ser"
 
 
 )
