@@ -10,16 +10,28 @@ public class AllTeachersPage {
     public AllTeachersPage(){
         PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(xpath = "//label[contains(text(),'Teacher Name')]")
+
+    @FindBy(xpath = "//label[contains(text(),'Teacher Name')]/preceding-sibling::*")
     public WebElement teacherName;
-    @FindBy(partialLinkText = "Search ")
+
+    @FindBy(xpath = "//a[contains(text(), 'Search')]")
     public WebElement searchBtn;
+
+    @FindBy(xpath = "(//a[@class='avatar'])[1]")
+    public WebElement avatar;
+
+    @FindBy(xpath = "(//h4)[1]")
+    public WebElement nameOfUser;
+
 
     @FindBy(xpath = "(//h3)[2]")
     public WebElement fullName;
 
-    @FindBy(xpath = "//span[contains(text(), 'Phone')]/following-sibling::*/a*")
+    @FindBy(xpath = "//span[contains(text(), 'Phone')]/following-sibling::*/a")
     public  WebElement phoneNumber;
+
+    @FindBy(xpath = "//span[contains(text(), 'Teacher ID:')]/following-sibling::*/a")
+    public WebElement teacherId;
 
     @FindBy(xpath = "//span[contains(text(), 'Email')]/following-sibling::*/a")
     public  WebElement email;
@@ -47,8 +59,5 @@ public class AllTeachersPage {
 
     @FindBy(xpath = "//span[contains(text(), 'Subject:')]/following-sibling::*")
     public WebElement subject;
-
-
-
 
 }
