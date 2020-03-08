@@ -1,288 +1,204 @@
 package step_definitions.createTecher;
 
+import Pages.createTeacher.AllTeachersPage;
+import Pages.createTeacher.Calendar;
+import Pages.createTeacher.CreateTeacherPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.eo.Se;
+import io.cucumber.datatable.DataTable;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.utilities.DBUtility;
+import utilities.utilities.Driver;
+import utilities.utilities.SeleniumUtils;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class create_techer_step_def {
 
-//    Map<String, String> data;
-//    @Given("teacher value")
-//    public void teacher_value(io.cucumber.datatable.DataTable dataTable) {
-//        data = dataTable.asMap(String.class, String.class);
-//    }
-//
-//
-//    @Then("create teacher on web")
-//    public void create_teacher_on_web() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new cucumber.api.PendingException();
-//    }
-//
-//    @Then("verify teacher on web")
-//    public void verify_teacher_on_web() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new cucumber.api.PendingException();
-//    }
-//
-//    @Then("verify teacher on database")
-//    public void verify_teacher_on_database() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new cucumber.api.PendingException();
-//    }
-@Given("teacher value")
-public void teacher_value(io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new cucumber.api.PendingException();
+    Map<String, String> data;
+    CreateTeacherPage createTeacherPage = new CreateTeacherPage();
+    AllTeachersPage allTeachersPage = new AllTeachersPage();
+    String id;
+    List<Map<Object, Object>> dataList;
+
+
+    @Given("teacher value")
+    public void teacher_value(DataTable dataTable) {
+    data = dataTable.asMap(String.class,String.class);
+
 }
+    @When("user clicks on teacher tab")
+    public void user_clicks_on_teacher_tab() {
+        createTeacherPage.teacherBtn.click();
 
-    @Given("user enter first name")
-    public void user_enter_first_name() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
     }
 
-    @Given("user enter last name")
-    public void user_enter_last_name() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @When("user clicks add teacher button")
+    public void user_clicks_add_teacher_button() {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.elementToBeClickable(createTeacherPage.addTeacherSideBar)).click();
+
     }
 
-    @Given("user enter email")
-    public void user_enter_email() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    @Given("user enter personal information")
+    public void user_enter_personal_information() {
+        SeleniumUtils.pause(3);
+        createTeacherPage.firstName.sendKeys(data.get("FirstName"));
+
+        createTeacherPage.lastName.sendKeys(data.get("LastName"));
+
+        createTeacherPage.email.sendKeys(data.get("Email"));
+
+        createTeacherPage.joiningDate.sendKeys(data.get("Joining Date"));
+
+        createTeacherPage.password.sendKeys(data.get("Password"));
+
+        createTeacherPage.passwordConfirm.sendKeys(data.get("Password Confirm"));
+
+        createTeacherPage.subject.sendKeys(data.get("Subject"));
+
+        createTeacherPage.mobileNumber.sendKeys(data.get("Mobile Number"));
+
+        Select selectGender = new Select(createTeacherPage.gender);
+        selectGender.selectByVisibleText(data.get("Gender"));
+
+        Select selectDepartment = new Select(createTeacherPage.department);
+        selectDepartment.selectByVisibleText(data.get("Department"));
+
+        createTeacherPage.birthDate.sendKeys(data.get("Birth Date"));
+
+        createTeacherPage.salary.click();
+        createTeacherPage.salary.clear();
+        createTeacherPage.salary.sendKeys(data.get("Salary"));
+
+        Select selectBatch = new Select(createTeacherPage.batch);
+        selectBatch.selectByVisibleText(data.get("Batch"));
+
+        createTeacherPage.section.sendKeys(data.get("Section"));
+
+        createTeacherPage.address.sendKeys(data.get("Address"));
+
     }
 
-    @Given("user enter joined date")
-    public void user_enter_joined_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter a password")
-    public void user_enter_a_password() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter a subject")
-    public void user_enter_a_subject() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user choose the gender")
-    public void user_choose_the_gender() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter the phone number")
-    public void user_enter_the_phone_number() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter the birthday date")
-    public void user_enter_the_birthday_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter salary")
-    public void user_enter_salary() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user choose department")
-    public void user_choose_department() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter section")
-    public void user_enter_section() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Given("user enter address")
-    public void user_enter_address() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
 
     @Then("user click submit button")
     public void user_click_submit_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        createTeacherPage.submitBtn.click();
     }
 
     @When("user is on the new page enter created user name")
     public void user_is_on_the_new_page_enter_created_user_name() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        SeleniumUtils.pause(3);
+        allTeachersPage.teacherName.click();
+        allTeachersPage.teacherName.sendKeys(data.get("FirstName"));
     }
 
     @When("user is clicking search button")
     public void user_is_clicking_search_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        allTeachersPage.searchBtn.click();
     }
 
     @Then("create name will be present on list of names")
     public void create_name_will_be_present_on_list_of_names() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        SeleniumUtils.pause(2);
+        Assert.assertEquals("name is not in the list in user interface",allTeachersPage.nameOfUser.getText(),(data.get("FirstName")));
+
     }
 
     @When("user open created teacher")
     public void user_open_created_teacher() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        allTeachersPage.avatar.click();
+
     }
 
     @When("user check check phone number")
     public void user_check_check_phone_number() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        id=allTeachersPage.teacherId.getText();
+        Assert.assertEquals("number is different",allTeachersPage.phoneNumber.getText(),data.get("Mobile Number"));
     }
 
     @When("user check email")
     public void user_check_email() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("email is wrong",allTeachersPage.email.getText(),data.get("Email"));
     }
 
     @When("user check batch")
     public void user_check_batch() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("batch is wrong",allTeachersPage.batch.getText(),data.get("Batch"));
     }
 
     @When("user check birthday")
     public void user_check_birthday() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("birthday is wrong",allTeachersPage.birthday.getText(),data.get("Birth Date"));
     }
 
     @When("user check join date")
     public void user_check_join_date() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("joined date is wrong",allTeachersPage.joinDate.getText(),data.get("Joining Date"));
+
     }
 
     @When("user check address")
     public void user_check_address() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals(allTeachersPage.address.getText(),data.get("Address"));
+
     }
 
     @When("user check gender")
     public void user_check_gender() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("gender is not equal",allTeachersPage.gender.getText(),data.get("Gender"));
     }
 
     @When("user check salary")
     public void user_check_salary() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("salary is different",allTeachersPage.salary.getText(),data.get("Salary"));
     }
 
     @When("user check section")
     public void user_check_section() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("section is correct",allTeachersPage.section.getText(), data.get("Section"));
     }
 
     @When("user check subject")
     public void user_check_subject() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Assert.assertEquals("subject is not as expected",allTeachersPage.subject.getText(), data.get("Subject"));
+
     }
 
     @Then("verify teacher on database")
-    public void verify_teacher_on_database() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+    public void verify_teacher_on_database() throws SQLException {
+//        DBUtility.createConnection();
+        dataList = DBUtility.executeQuery("select* from teacher where teacher_id="+id);
+        System.out.println(dataList);
+        DBUtility.close();
+        for(Map<Object, Object> map: dataList){
+                Assert.assertEquals((map.get("TEACHER_ID")).toString(),id);
+                Assert.assertEquals(map.get("FIRST_NAME").toString(),data.get("FirstName"));
+                Assert.assertEquals(map.get("PHONE").toString(),data.get("Mobile Number"));
+                Assert.assertEquals(map.get("DEPARTMENT").toString(),data.get("Department"));
+                Assert.assertEquals(map.get("LAST_NAME").toString(),data.get("LastName"));
+                Assert.assertEquals(map.get("PREMANENT_ADDRESS").toString(),data.get("Address"));
+                Assert.assertEquals(map.get("SALARY").toString(),data.get("Salary"));
+                Assert.assertEquals(map.get("EMAIL_ADDRESS").toString(), data.get("Email"));
+                Assert.assertEquals(map.get("BIRTH_DATE").toString(), data.get("Birth Date"));
+                Assert.assertEquals(map.get("GENDER").toString(), data.get("Gender"));
+                Assert.assertEquals(map.get("SUBJECT").toString(), data.get("Subject"));
+                Assert.assertEquals(map.get("BATCH").toString(),data.get("Batch"));
+                Assert.assertEquals(map.get("SECTION").toString(), data.get("Section"));
+
+        }
+
     }
 
-    @Then("first name is verified")
-    public void first_name_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("last name is verified")
-    public void last_name_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("email is verified")
-    public void email_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("batch is verified")
-    public void batch_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("birthday is verified")
-    public void birthday_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("join date is verified")
-    public void join_date_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("address is verified")
-    public void address_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("gender is verified")
-    public void gender_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("salary is verified")
-    public void salary_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("section is verified")
-    public void section_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
-
-    @Then("subject is verified")
-    public void subject_is_verified() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
-    }
 
 
 
