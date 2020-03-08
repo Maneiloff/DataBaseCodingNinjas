@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +25,18 @@ public class SeleniumUtils {
 
     }
 
-    public static void waitForVisibility(WebElement element, int seconds) {
+    public static void waitForVisibility(WebElement element, int seconds) throws MalformedURLException {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), seconds);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+    public static void pause(int seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 

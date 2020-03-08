@@ -1,21 +1,35 @@
 package utilities.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Driver {
 
    private static WebDriver driver;
 
+
+    public static final String USERNAME = "oytunpiren";
+    public static final String ACCESS_KEY = "762b8030-4f45-4ca6-aa53-e9750601a9c3";
+    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+
+
     private Driver() {
 
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver() throws MalformedURLException {
 
         if(driver == null) {
 
@@ -24,6 +38,19 @@ public class Driver {
                    WebDriverManager.chromedriver().setup();
                    driver = new ChromeDriver();
                    break;
+               case "saucelab":
+
+                   DesiredCapabilities caps = DesiredCapabilities.chrome();
+                   MutableCapabilities sauceOptions = new MutableCapabilities();
+                   ChromeOptions browserOptions = new ChromeOptions();
+                   browserOptions.setExperimentalOption("w3c", true);
+                   browserOptions.setCapability("platformName", "macOS 10.15");
+                   browserOptions.setCapability("browserVersion", "latest");
+                   browserOptions.setCapability("sauce:options", sauceOptions);
+
+                   driver = new RemoteWebDriver(new URL(URL),caps);
+                   break;
+
                case "firefox":
                    WebDriverManager.firefoxdriver().setup();
                    driver = new FirefoxDriver();
@@ -38,8 +65,9 @@ public class Driver {
 
            }
 
-            //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             driver.manage().window().maximize();
+
 
         }
 
