@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -30,8 +31,12 @@ public class UptadeTeacher_Step_Def {
     String phoneNumber;
     String surname;
 
+    public UptadeTeacher_Step_Def() throws MalformedURLException {
+    }
+
     @When("user clicks on Teacher button")
     public void user_clicks_on_Teacher_button() throws InterruptedException {
+        Thread.sleep(3000);
         uptadeTeacher.teacherButton.click();
         Thread.sleep(3000);
     }
@@ -51,7 +56,7 @@ public class UptadeTeacher_Step_Def {
 
 //user clicks on Grid-Wiew button
     @Then("user should see profile widgets")
-    public void user_should_see_profile_widgets() throws InterruptedException {
+    public void user_should_see_profile_widgets() throws InterruptedException, MalformedURLException {
         uptadeTeacher.name.click();
         Thread.sleep(2000);
         id = uptadeTeacher.teacherId.getText();
@@ -62,7 +67,7 @@ public class UptadeTeacher_Step_Def {
     @When("user clicks on three dot dropdown")
     public void user_clicks_on_three_dot_dropdown() throws InterruptedException {
         uptadeTeacher.threeDots.click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
 
 
@@ -84,22 +89,22 @@ public class UptadeTeacher_Step_Def {
     public void the_user_enters_first_name_email_mobileNumber_and_salary(DataTable login) throws InterruptedException {
         List<List<String>> data = login.asLists();
 
-        uptadeTeacher.FirstName.click();
-        uptadeTeacher.FirstName.clear();
-        uptadeTeacher.FirstName.sendKeys(data.get(0).get(0));
+//        uptadeTeacher.FirstName.click();
+//        uptadeTeacher.FirstName.clear();
+//        uptadeTeacher.FirstName.sendKeys(data.get(0).get(0));
 
         uptadeTeacher.email.click();
         uptadeTeacher.email.clear();
-        uptadeTeacher.email.sendKeys(data.get(0).get(1));
+        uptadeTeacher.email.sendKeys(data.get(0).get(0));
 
         uptadeTeacher.mobileNumber.click();
         uptadeTeacher.mobileNumber.clear();
-        uptadeTeacher.mobileNumber.sendKeys(data.get(0).get(2));
+        uptadeTeacher.mobileNumber.sendKeys(data.get(0).get(1));
         Thread.sleep(2000);
         uptadeTeacher.salary.click();
         uptadeTeacher.salary.clear();
         Thread.sleep(2000);
-        uptadeTeacher.salary.sendKeys(data.get(0).get(3));
+        uptadeTeacher.salary.sendKeys(data.get(0).get(2));
         Thread.sleep(2000);
         uptadeTeacher.submitButton.click();
         Thread.sleep(2000);
@@ -108,7 +113,7 @@ public class UptadeTeacher_Step_Def {
 
     @Then("verify teacher's new information on web")
     public void verify_teacher_s_new_information_on_web() throws InterruptedException {
-
+Thread.sleep(1000);
         uptadeTeacher.search.click();
         uptadeTeacher.search.sendKeys(id, Keys.ENTER);
         Thread.sleep(2000);
@@ -120,8 +125,8 @@ public class UptadeTeacher_Step_Def {
         uptadeTeacher.editButton.click();
         Thread.sleep(3000);
 
-        name = uptadeTeacher.FirstName.getAttribute("value");
-        System.out.println(name);
+       // name = uptadeTeacher.FirstName.getAttribute("value");
+        //System.out.println(name);
         email = uptadeTeacher.email.getAttribute("value");
         System.out.println(email);
         phoneNumber = uptadeTeacher.mobileNumber.getAttribute("value");
@@ -148,8 +153,8 @@ public class UptadeTeacher_Step_Def {
         System.out.println(actualEmail);
         actualPhone = l.get(0).get("PHONE").toString();
         System.out.println(actualPhone);
-        actualFirstName = l.get(0).get("FIRST_NAME").toString();
-        System.out.println(actualFirstName);
+        //actualFirstName = l.get(0).get("FIRST_NAME").toString();
+        //System.out.println(actualFirstName);
 
         Assert.assertEquals(actualEmail, email);
         Assert.assertEquals("UI and database does not match", actualSalary, salary);

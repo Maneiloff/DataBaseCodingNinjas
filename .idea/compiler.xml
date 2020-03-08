@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DataBaseCodingNinjas2" />
-        <module name="CybertektrainingDBtesting" />
         <module name="DataBaseCodingNinjas" />
+        <module name="CybertektrainingDBtesting" />
+        <module name="DataBaseCodingNinjas1" />
       </profile>
     </annotationProcessing>
   </component>

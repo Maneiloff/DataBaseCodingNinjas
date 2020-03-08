@@ -6,8 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
+
 public class DeleteStudentsMakmal {
-    public DeleteStudentsMakmal(){
+    public DeleteStudentsMakmal() throws MalformedURLException {
         PageFactory.initElements(Driver.getDriver(),this);}
 
      @FindBy(linkText = "Students")

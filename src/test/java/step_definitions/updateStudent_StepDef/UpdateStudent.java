@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
+
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +23,9 @@ public class UpdateStudent {
     String actualEmail;
     String actualSalary;
 
+    public UpdateStudent() throws MalformedURLException {
+    }
+
     @When("user clicks on Student button")
     public void user_clicks_on_Student_button() throws InterruptedException {
         Thread.sleep(10000);
@@ -33,7 +38,7 @@ public class UpdateStudent {
 //        Assert.assertTrue("Add teacher button is NOT enable ", updateStudent.addTeaxcher.isEnabled());
     }
     @When("user clicks on All Student Button")
-    public void user_clicks_on_All_Student_Button() throws InterruptedException {
+    public void user_clicks_on_All_Student_Button() throws InterruptedException, MalformedURLException {
         updateStudent.allTeacherButton.click();
         Thread.sleep(4000);
         updateStudent.name.click();

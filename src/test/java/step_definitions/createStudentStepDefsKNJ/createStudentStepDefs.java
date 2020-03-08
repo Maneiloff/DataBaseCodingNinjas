@@ -12,6 +12,7 @@ import utilities.utilities.Config;
 import utilities.utilities.Driver;
 import utilities.utilities.SeleniumUtils;
 
+import java.net.MalformedURLException;
 import java.sql.*;
 
 public class createStudentStepDefs {
@@ -19,8 +20,11 @@ public class createStudentStepDefs {
     CreateStudent createStudent = new CreateStudent();
     Faker faker = new Faker();
 
+    public createStudentStepDefs() throws MalformedURLException {
+    }
+
     @Given("User is in Dashboard page")
-    public void user_is_in_Dashboard_page() {
+    public void user_is_in_Dashboard_page() throws MalformedURLException {
         Driver.getDriver().get(Config.getProperty("cybertektrainingURL"));
     }
 

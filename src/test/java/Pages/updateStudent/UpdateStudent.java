@@ -3,8 +3,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.utilities.Driver;
+
+import java.net.MalformedURLException;
+
 public class UpdateStudent {
-    public UpdateStudent() {
+    public UpdateStudent() throws MalformedURLException {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy(xpath = "(//div[@class='profile-widget']")

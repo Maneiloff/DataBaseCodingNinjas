@@ -17,6 +17,7 @@ import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 import utilities.utilities.SeleniumUtils;
 
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,9 @@ public class create_techer_step_def {
     AllTeachersPage allTeachersPage = new AllTeachersPage();
     String id;
     List<Map<Object, Object>> dataList;
+
+    public create_techer_step_def() throws MalformedURLException {
+    }
 
 
     @Given("teacher value")
@@ -43,7 +47,7 @@ public class create_techer_step_def {
     }
 
     @When("user clicks add teacher button")
-    public void user_clicks_add_teacher_button() {
+    public void user_clicks_add_teacher_button() throws MalformedURLException {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
         wait.until(ExpectedConditions.elementToBeClickable(createTeacherPage.addTeacherSideBar)).click();
 

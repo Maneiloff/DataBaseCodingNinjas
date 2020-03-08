@@ -10,11 +10,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
+
 public class DeletingTeacherwithGridview {
 
 
 DeletinTeacherUlku deletinTeacherUlku=new DeletinTeacherUlku();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
+
+    public DeletingTeacherwithGridview() throws MalformedURLException {
+    }
 
     @Given("user is on homepage")
     public void user_is_on_homepage() {

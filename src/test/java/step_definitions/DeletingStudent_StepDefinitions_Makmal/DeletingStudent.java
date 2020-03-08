@@ -13,6 +13,7 @@ import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 import utilities.utilities.SeleniumUtils;
 
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -22,8 +23,11 @@ public class DeletingStudent {
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
    private static String idStudent;
 
+    public DeletingStudent() throws MalformedURLException {
+    }
+
     @Given("the user is on the dashboard module")
-    public void the_user_is_on_the_dashboard_module() {
+    public void the_user_is_on_the_dashboard_module() throws MalformedURLException {
 SeleniumUtils.waitForVisibility(deleteStudentsMakmal.StudentsButton,3);
         Assert.assertEquals(" not matching","Students",deleteStudentsMakmal.StudentsButton.getText());
 
@@ -49,7 +53,7 @@ SeleniumUtils.waitForVisibility(deleteStudentsMakmal.StudentsButton,3);
     }
 
     @Then("user should be navigated to new page with students information")
-    public void user_should_be_navigated_to_new_page_with_students_information() throws InterruptedException {
+    public void user_should_be_navigated_to_new_page_with_students_information() throws InterruptedException, MalformedURLException {
 
         Thread.sleep(3000);
         Assert.assertEquals("not matching","School",Driver.getDriver().getTitle());
@@ -66,7 +70,7 @@ SeleniumUtils.waitForVisibility(deleteStudentsMakmal.StudentsButton,3);
     }
 
     @Then("User navigate.back")
-    public void user_navigate_back() {
+    public void user_navigate_back() throws MalformedURLException {
       Driver.getDriver().navigate().back();
     }
 

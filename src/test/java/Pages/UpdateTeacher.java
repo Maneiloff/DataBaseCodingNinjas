@@ -5,9 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
+
 public class UpdateTeacher {
 
-    public UpdateTeacher() {
+    public UpdateTeacher() throws MalformedURLException {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
