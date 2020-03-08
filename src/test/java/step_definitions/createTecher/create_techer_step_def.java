@@ -176,7 +176,7 @@ public class create_techer_step_def {
 
     @Then("verify teacher on database")
     public void verify_teacher_on_database() throws SQLException {
-//        DBUtility.createConnection();
+    DBUtility.createConnection();
         dataList = DBUtility.executeQuery("select* from teacher where teacher_id="+id);
         System.out.println(dataList);
 
