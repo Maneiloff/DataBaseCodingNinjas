@@ -1,6 +1,6 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/dataBase.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/databaseCN.feature");
 formatter.feature({
-  "name": "",
+  "name": "DatabaseConnection",
   "description": "",
   "keyword": "Feature",
   "tags": [
@@ -128,7 +128,8 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.the_user_enters_first_name_email_mobileNumber_and_salary(DataTable)"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "java.lang.IndexOutOfBoundsException: Index 3 out of bounds for length 3\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)\r\n\tat java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)\r\n\tat java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:248)\r\n\tat java.base/java.util.Objects.checkIndex(Objects.java:372)\r\n\tat java.base/java.util.ArrayList.get(ArrayList.java:458)\r\n\tat java.base/java.util.Collections$UnmodifiableList.get(Collections.java:1310)\r\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.the_user_enters_first_name_email_mobileNumber_and_salary(UptadeTeacher_Step_Def.java:102)\r\n\tat ✽.the user enters first name, email, mobileNumber and salary(src/test/resources/features/databaseCN.feature:15)\r\n",
+  "status": "failed"
 });
 formatter.step({
   "name": "verify teacher\u0027s new information on web",
@@ -138,7 +139,7 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_web()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "verify teacher\u0027s new information on database",
@@ -148,8 +149,7 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database()"
 });
 formatter.result({
-  "error_message": "org.junit.ComparisonFailure: UI and database does not match expected:\u003c1[5]000\u003e but was:\u003c1[00]000\u003e\n\tat org.junit.Assert.assertEquals(Assert.java:115)\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database(UptadeTeacher_Step_Def.java:156)\n\tat ✽.verify teacher\u0027s new information on database(src/test/resources/features/dataBase.feature:48)\n",
-  "status": "failed"
+  "status": "skipped"
 });
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
@@ -283,8 +283,7 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_web()"
 });
 formatter.result({
-  "error_message": "org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document\n  (Session info: chrome\u003d80.0.3987.132)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Oytuns-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:c08:98b2:897a:ba2f%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.3\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: /var/folders/3t/36s4c8cn2mg...}, goog:chromeOptions: {debuggerAddress: localhost:57455}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: c0b2ec335b02fa4129dac1e164a2f445\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)\n\tat jdk.internal.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)\n\tat com.sun.proxy.$Proxy20.click(Unknown Source)\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_web(UptadeTeacher_Step_Def.java:113)\n\tat ✽.verify teacher\u0027s new information on web(src/test/resources/features/dataBase.feature:63)\n",
-  "status": "failed"
+  "status": "passed"
 });
 formatter.step({
   "name": "verify teacher\u0027s new information on database",
@@ -294,9 +293,8 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database()"
 });
 formatter.result({
-  "status": "skipped"
+  "status": "passed"
 });
-formatter.embedding("image/png", "embedded1.png");
 formatter.after({
   "status": "passed"
 });
@@ -410,7 +408,8 @@ formatter.match({
   "location": "DeletingStudent.user_should_be_able_to_to_see_delete_button()"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator \u0027By.xpath: //*[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027]/a[2]\u0027 (tried for 30 second(s) with 500 milliseconds interval)\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)\r\n\tat step_definitions.DeletingStudent_StepDefinitions_Makmal.DeletingStudent.user_should_be_able_to_to_see_delete_button(DeletingStudent.java:81)\r\n\tat ✽.user should be able to to see delete button(src/test/resources/features/databaseCN.feature:64)\r\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027]/a[2]\"}\n  (Session info: chrome\u003d80.0.3987.132)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027LAPTOP-LTKT5Q0T\u0027, ip: \u002710.1.10.165\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\\Users\\Serghei\\AppData\\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:60506}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: c4ff324b3a2e18371f7f777f6be02330\n*** Element info: {Using\u003dxpath, value\u003d//*[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027]/a[2]}\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\r\n\tat com.sun.proxy.$Proxy21.isDisplayed(Unknown Source)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:314)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions.access$000(ExpectedConditions.java:43)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:300)\r\n\tat org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:297)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)\r\n\tat step_definitions.DeletingStudent_StepDefinitions_Makmal.DeletingStudent.user_should_be_able_to_to_see_delete_button(DeletingStudent.java:81)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:567)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:49)\r\n\tat cucumber.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:50)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:63)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:49)\r\n\tat cucumber.runner.PickleStepTestStep.run(PickleStepTestStep.java:43)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:44)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:40)\r\n\tat cucumber.runtime.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat cucumber.runtime.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat cucumber.runtime.junit.FeatureRunner.run(FeatureRunner.java:73)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:124)\r\n\tat cucumber.api.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)\r\n\tat cucumber.api.junit.Cucumber$1.evaluate(Cucumber.java:133)\r\n\tat org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)\r\n\tat org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:363)\r\n\tat org.junit.runner.JUnitCore.run(JUnitCore.java:137)\r\n\tat com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)\r\n\tat com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:33)\r\n\tat com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:230)\r\n\tat com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)\r\n",
+  "status": "failed"
 });
 formatter.step({
   "name": "Delete employee button should be pop up",
@@ -420,7 +419,7 @@ formatter.match({
   "location": "DeletingStudent.delete_employee_button_should_be_pop_up()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "user should be able to delete students info",
@@ -430,7 +429,7 @@ formatter.match({
   "location": "DeletingStudent.user_should_be_able_to_delete_students_info()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "The information should be deleted from data",
@@ -440,8 +439,9 @@ formatter.match({
   "location": "DeletingStudent.the_information_should_be_deleted_from_data()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
+formatter.embedding("image/png", "embedded1.png");
 formatter.after({
   "status": "passed"
 });
@@ -842,7 +842,8 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.user_should_see_Edit_and_Delete_options()"
 });
 formatter.result({
-  "status": "passed"
+  "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"(//div[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027] //a[@class\u003d\u0027dropdown-item\u0027])[1]\"}\n  (Session info: chrome\u003d80.0.3987.132)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027LAPTOP-LTKT5Q0T\u0027, ip: \u002710.1.10.165\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: C:\\Users\\Serghei\\AppData\\Lo...}, goog:chromeOptions: {debuggerAddress: localhost:60506}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: c4ff324b3a2e18371f7f777f6be02330\n*** Element info: {Using\u003dxpath, value\u003d(//div[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027] //a[@class\u003d\u0027dropdown-item\u0027])[1]}\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\r\n\tat com.sun.proxy.$Proxy21.isEnabled(Unknown Source)\r\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.user_should_see_Edit_and_Delete_options(UptadeTeacher_Step_Def.java:71)\r\n\tat ✽.user should see Edit and Delete options(src/test/resources/features/databaseCN.feature:118)\r\n",
+  "status": "failed"
 });
 formatter.step({
   "name": "user clicks on Edit button",
@@ -852,7 +853,7 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.user_clicks_on_Edit_button()"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "the user enters first name, email, mobileNumber and major",
@@ -872,7 +873,7 @@ formatter.match({
   "location": "UpdateStudent.the_user_enters_first_name_email_mobileNumber_and_major(DataTable)"
 });
 formatter.result({
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "verify student\u0027s new information on web",
@@ -882,8 +883,7 @@ formatter.match({
   "location": "UpdateStudent.verify_student_s_new_information_on_web()"
 });
 formatter.result({
-  "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"(//div[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027] //a[@class\u003d\u0027dropdown-item\u0027])[1]\"}\n  (Session info: chrome\u003d80.0.3987.132)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Oytuns-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:c08:98b2:897a:ba2f%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.3\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 80.0.3987.132, chrome: {chromedriverVersion: 80.0.3987.106 (f68069574609..., userDataDir: /var/folders/3t/36s4c8cn2mg...}, goog:chromeOptions: {debuggerAddress: localhost:57455}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: c0b2ec335b02fa4129dac1e164a2f445\n*** Element info: {Using\u003dxpath, value\u003d(//div[@class\u003d\u0027dropdown-menu dropdown-menu-right show\u0027] //a[@class\u003d\u0027dropdown-item\u0027])[1]}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\n\tat com.sun.proxy.$Proxy20.click(Unknown Source)\n\tat step_definitions.updateStudent_StepDef.UpdateStudent.verify_student_s_new_information_on_web(UpdateStudent.java:76)\n\tat ✽.verify student\u0027s new information on web(src/test/resources/features/dataBase.feature:135)\n",
-  "status": "failed"
+  "status": "skipped"
 });
 formatter.step({
   "name": "verify student\u0027s new information on database",
@@ -896,6 +896,311 @@ formatter.result({
   "status": "skipped"
 });
 formatter.embedding("image/png", "embedded2.png");
+formatter.after({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "Add a student using Add Student Button",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@CN-215"
+    },
+    {
+      "name": "@CN-225"
+    },
+    {
+      "name": "@CN-216"
+    },
+    {
+      "name": "@CN-217"
+    }
+  ]
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User is in Dashboard page",
+  "keyword": "Given "
+});
+formatter.match({
+  "location": "createStudentStepDefs.user_is_in_Dashboard_page()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User clicks on Student button",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "createStudentStepDefs.user_clicks_on_Student_button()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User clicks on Add Student button",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "createStudentStepDefs.userClicksOnAddStudentButton()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User enters keyword FirstName",
+  "keyword": "When "
+});
+formatter.match({
+  "location": "createStudentStepDefs.user_enters_keyword_FirstName()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Lastname",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.lastname()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Email",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.email()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Joining date",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.joining_date()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Password",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.password()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "ConfirmPassword",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.confirmpassword()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Subject",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.subject()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "MobileNumber",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.mobilenumber()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Gender",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.gender()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "AdmissionNo",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.admissionno()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "BirthDate",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.birthdate()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Major",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.major()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Batch",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.batch()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Section",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.section()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Permanent Address",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.permanent_Address()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Company name",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.company_name()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Title",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.title()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Start Date",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.start_Date()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "City",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.city()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Street",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.street()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Zip code",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.zip_code()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "State",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.state()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "User should be able to submit",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "createStudentStepDefs.userShouldBeAbleToSubmit()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Verify user can see the created student in All Students module",
+  "keyword": "Then "
+});
+formatter.match({
+  "location": "createStudentStepDefs.verifyUserCanSeeTheCreatedStudentInAllStudentsModule()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "Verify the created student is in the DataBase",
+  "keyword": "And "
+});
+formatter.match({
+  "location": "createStudentStepDefs.verifyTheCreatedStudentIsInTheDataBase()"
+});
+formatter.result({
+  "status": "passed"
+});
 formatter.after({
   "status": "passed"
 });
