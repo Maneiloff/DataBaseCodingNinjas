@@ -15,10 +15,10 @@ import java.sql.SQLException;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"html:target/cucumber-reports", "json:target/cucumber.json"},
-        features="src/test/resources/features/1.feature-Makmal.feature",
+        features="src/test/resources/features",
         glue="step_definitions",
         dryRun= false,
-        tags = "@ser"
+        tags = "@CN-215"
 
 
 )
