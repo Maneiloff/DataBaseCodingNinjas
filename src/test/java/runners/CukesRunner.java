@@ -14,7 +14,7 @@ import utilities.utilities.Driver;
         features="src/test/resources/features",
         glue="step_definitions",
         dryRun= true,
-        tags = "@ser"
+        tags = "@CN-229 @CN-216 @CN-217"
 
 
 )
