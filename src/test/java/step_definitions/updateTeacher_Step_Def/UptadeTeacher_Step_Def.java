@@ -32,6 +32,7 @@ public class UptadeTeacher_Step_Def {
 
     @When("user clicks on Teacher button")
     public void user_clicks_on_Teacher_button() throws InterruptedException {
+        Thread.sleep(3000);
         uptadeTeacher.teacherButton.click();
         Thread.sleep(3000);
     }
@@ -62,7 +63,7 @@ public class UptadeTeacher_Step_Def {
     @When("user clicks on three dot dropdown")
     public void user_clicks_on_three_dot_dropdown() throws InterruptedException {
         uptadeTeacher.threeDots.click();
-        Thread.sleep(3000);
+        Thread.sleep(4000);
     }
 
 
@@ -84,22 +85,22 @@ public class UptadeTeacher_Step_Def {
     public void the_user_enters_first_name_email_mobileNumber_and_salary(DataTable login) throws InterruptedException {
         List<List<String>> data = login.asLists();
 
-        uptadeTeacher.FirstName.click();
-        uptadeTeacher.FirstName.clear();
-        uptadeTeacher.FirstName.sendKeys(data.get(0).get(0));
+//        uptadeTeacher.FirstName.click();
+//        uptadeTeacher.FirstName.clear();
+//        uptadeTeacher.FirstName.sendKeys(data.get(0).get(0));
 
         uptadeTeacher.email.click();
         uptadeTeacher.email.clear();
-        uptadeTeacher.email.sendKeys(data.get(0).get(1));
+        uptadeTeacher.email.sendKeys(data.get(0).get(0));
 
         uptadeTeacher.mobileNumber.click();
         uptadeTeacher.mobileNumber.clear();
-        uptadeTeacher.mobileNumber.sendKeys(data.get(0).get(2));
+        uptadeTeacher.mobileNumber.sendKeys(data.get(0).get(1));
         Thread.sleep(2000);
         uptadeTeacher.salary.click();
         uptadeTeacher.salary.clear();
         Thread.sleep(2000);
-        uptadeTeacher.salary.sendKeys(data.get(0).get(3));
+        uptadeTeacher.salary.sendKeys(data.get(0).get(2));
         Thread.sleep(2000);
         uptadeTeacher.submitButton.click();
         Thread.sleep(2000);

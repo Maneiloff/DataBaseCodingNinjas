@@ -14,7 +14,9 @@ import java.sql.SQLException;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"html:target/cucumber-reports", "json:target/cucumber.json"},
+        plugin = {"html:target/cucumber-reports", "json:target/cucumber.json",
+                "rerun:target/rerun.text"
+        },
         features="src/test/resources/features",
         glue="step_definitions",
         dryRun= false,
