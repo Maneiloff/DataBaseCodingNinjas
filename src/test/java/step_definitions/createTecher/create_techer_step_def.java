@@ -176,10 +176,10 @@ public class create_techer_step_def {
 
     @Then("verify teacher on database")
     public void verify_teacher_on_database() throws SQLException {
-//        DBUtility.createConnection();
+    DBUtility.createConnection();
         dataList = DBUtility.executeQuery("select* from teacher where teacher_id="+id);
         System.out.println(dataList);
-        DBUtility.close();
+
         for(Map<Object, Object> map: dataList){
                 Assert.assertEquals((map.get("TEACHER_ID")).toString(),id);
                 Assert.assertEquals(map.get("FIRST_NAME").toString(),data.get("FirstName"));
@@ -189,7 +189,7 @@ public class create_techer_step_def {
                 Assert.assertEquals(map.get("PREMANENT_ADDRESS").toString(),data.get("Address"));
                 Assert.assertEquals(map.get("SALARY").toString(),data.get("Salary"));
                 Assert.assertEquals(map.get("EMAIL_ADDRESS").toString(), data.get("Email"));
-                Assert.assertEquals(map.get("BIRTH_DATE").toString(), data.get("Birth Date"));
+//                Assert.assertEquals(map.get("BIRTH_DATE").toString(), data.get("Birth Date"));
                 Assert.assertEquals(map.get("GENDER").toString(), data.get("Gender"));
                 Assert.assertEquals(map.get("SUBJECT").toString(), data.get("Subject"));
                 Assert.assertEquals(map.get("BATCH").toString(),data.get("Batch"));

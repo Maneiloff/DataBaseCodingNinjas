@@ -49,7 +49,7 @@ public class UptadeTeacher_Step_Def {
         Thread.sleep(4000);
     }
 
-
+//user clicks on Grid-Wiew button
     @Then("user should see profile widgets")
     public void user_should_see_profile_widgets() throws InterruptedException {
         uptadeTeacher.name.click();
@@ -79,7 +79,7 @@ public class UptadeTeacher_Step_Def {
         Thread.sleep(3000);
     }
 
-
+//the user enters email, mobileNumber and salary
     @Then("the user enters first name, email, mobileNumber and salary")
     public void the_user_enters_first_name_email_mobileNumber_and_salary(DataTable login) throws InterruptedException {
         List<List<String>> data = login.asLists();
@@ -202,14 +202,13 @@ public class UptadeTeacher_Step_Def {
 
     @Then("verify teacher's new firstName and lastName information on database")
     public void verify_teacher_s_new_firstName_and_lastName_information_on_database() throws SQLException {
-        DBUtility.createConnection();
         List<Map<Object, Object>> l = DBUtility.executeQuery("SELECT  first_name, last_name from teacher where teacher_id=" + id);
         String ActualName = l.get(0).get("FIRST_NAME").toString();
         String actualLastName = l.get(0).get("LAST_NAME").toString();
 
         Assert.assertEquals(ActualName, name);
         Assert.assertEquals(actualLastName, surname);
-        DBUtility.close();
+
 
     }
 
