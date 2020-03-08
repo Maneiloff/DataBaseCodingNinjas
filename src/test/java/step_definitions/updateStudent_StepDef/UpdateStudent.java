@@ -87,7 +87,6 @@ public class UpdateStudent {
     }
     @Then("verify student's new information on database")
     public void verify_student_s_new_information_on_database() throws SQLException {
-        DBUtility.createConnection();
         List<Map<Object, Object>> l = DBUtility.executeQuery("select s.first_name, s.major, c.phone, c.email_address from STUDENT s left join contact c on c.student_id=s.student_id where s.student_id=" + id);
         System.out.println(l.get(0));
         actualSalary = l.get(0).get("MAJOR").toString();
@@ -102,6 +101,6 @@ public class UpdateStudent {
         Assert.assertEquals("UI and database does not match", actualSalary, major);
         Assert.assertEquals(actualFirstName, name);
         Assert.assertEquals(actualPhone, phoneNumber);
-        DBUtility.close();
+
     }
 }
