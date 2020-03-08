@@ -148,7 +148,7 @@ formatter.match({
   "location": "UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database()"
 });
 formatter.result({
-  "error_message": "org.junit.ComparisonFailure: UI and database does not match expected:\u003c1[5]000\u003e but was:\u003c1[00]000\u003e\n\tat org.junit.Assert.assertEquals(Assert.java:115)\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database(UptadeTeacher_Step_Def.java:156)\n\tat ✽.verify teacher\u0027s new information on database(src/test/resources/features/databaseCN.feature:18)\n",
+  "error_message": "org.junit.ComparisonFailure: UI and database does not match expected:\u003c1[5]000\u003e but was:\u003c1[00]000\u003e\n\tat org.junit.Assert.assertEquals(Assert.java:115)\n\tat step_definitions.updateTeacher_Step_Def.UptadeTeacher_Step_Def.verify_teacher_s_new_information_on_database(UptadeTeacher_Step_Def.java:160)\n\tat ✽.verify teacher\u0027s new information on database(src/test/resources/features/databaseCN.feature:18)\n",
   "status": "failed"
 });
 formatter.embedding("image/png", "embedded0.png");

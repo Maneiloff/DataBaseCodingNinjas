@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -29,6 +30,9 @@ public class UptadeTeacher_Step_Def {
     String salary;
     String phoneNumber;
     String surname;
+
+    public UptadeTeacher_Step_Def() throws MalformedURLException {
+    }
 
     @When("user clicks on Teacher button")
     public void user_clicks_on_Teacher_button() throws InterruptedException {
@@ -52,7 +56,7 @@ public class UptadeTeacher_Step_Def {
 
 //user clicks on Grid-Wiew button
     @Then("user should see profile widgets")
-    public void user_should_see_profile_widgets() throws InterruptedException {
+    public void user_should_see_profile_widgets() throws InterruptedException, MalformedURLException {
         uptadeTeacher.name.click();
         Thread.sleep(2000);
         id = uptadeTeacher.teacherId.getText();

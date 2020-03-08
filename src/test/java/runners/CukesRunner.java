@@ -10,6 +10,7 @@ import utilities.utilities.Config;
 import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 
+import java.net.MalformedURLException;
 import java.sql.SQLException;
 
 @RunWith(Cucumber.class)
@@ -28,7 +29,7 @@ import java.sql.SQLException;
 public class CukesRunner {
 
     @BeforeClass
-    public static void  setUp()throws SQLException {
+    public static void  setUp() throws SQLException, MalformedURLException {
 
         Driver.getDriver().get(Config.getProperty("url"));
         DBUtility.createConnection();
