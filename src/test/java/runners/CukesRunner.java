@@ -18,7 +18,7 @@ import java.sql.SQLException;
         features="src/test/resources/features",
         glue="step_definitions",
         dryRun= false,
-        tags = "@ser"
+        tags = "@CN-215"
 
 
 )
