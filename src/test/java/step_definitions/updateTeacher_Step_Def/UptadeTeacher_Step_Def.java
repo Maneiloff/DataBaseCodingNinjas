@@ -109,7 +109,7 @@ public class UptadeTeacher_Step_Def {
 
     @Then("verify teacher's new information on web")
     public void verify_teacher_s_new_information_on_web() throws InterruptedException {
-
+Thread.sleep(1000);
         uptadeTeacher.search.click();
         uptadeTeacher.search.sendKeys(id, Keys.ENTER);
         Thread.sleep(2000);
@@ -121,8 +121,8 @@ public class UptadeTeacher_Step_Def {
         uptadeTeacher.editButton.click();
         Thread.sleep(3000);
 
-        name = uptadeTeacher.FirstName.getAttribute("value");
-        System.out.println(name);
+       // name = uptadeTeacher.FirstName.getAttribute("value");
+        //System.out.println(name);
         email = uptadeTeacher.email.getAttribute("value");
         System.out.println(email);
         phoneNumber = uptadeTeacher.mobileNumber.getAttribute("value");
@@ -149,8 +149,8 @@ public class UptadeTeacher_Step_Def {
         System.out.println(actualEmail);
         actualPhone = l.get(0).get("PHONE").toString();
         System.out.println(actualPhone);
-        actualFirstName = l.get(0).get("FIRST_NAME").toString();
-        System.out.println(actualFirstName);
+        //actualFirstName = l.get(0).get("FIRST_NAME").toString();
+        //System.out.println(actualFirstName);
 
         Assert.assertEquals(actualEmail, email);
         Assert.assertEquals("UI and database does not match", actualSalary, salary);
