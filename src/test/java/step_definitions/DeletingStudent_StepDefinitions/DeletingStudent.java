@@ -1,14 +1,12 @@
-package step_definitions.DeletingStudent_StepDefinitions_Makmal;
+package step_definitions.DeletingStudent_StepDefinitions;
 
-import PagesMakmal.DeleteStudentsMakmal;
+import Pagesdelete.DeleteStudentsMakmal;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.eo.Se;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utilities.utilities.Config;
 import utilities.utilities.DBUtility;
 import utilities.utilities.Driver;
 import utilities.utilities.SeleniumUtils;

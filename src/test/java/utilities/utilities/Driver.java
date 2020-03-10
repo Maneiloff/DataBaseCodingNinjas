@@ -19,7 +19,7 @@ public class Driver {
 
    private static WebDriver driver;
 
-
+//https://wiki.saucelabs.com/display/DOCS/Getting+Started+with+Selenium+for+Automated+Website+Testing
     public static final String USERNAME = "oytunpiren";
     public static final String ACCESS_KEY = "762b8030-4f45-4ca6-aa53-e9750601a9c3";
     public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
@@ -39,7 +39,7 @@ public class Driver {
                    driver = new ChromeDriver();
                    break;
                case "saucelab":
-
+//https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
                    DesiredCapabilities caps = DesiredCapabilities.chrome();
                    MutableCapabilities sauceOptions = new MutableCapabilities();
                    ChromeOptions browserOptions = new ChromeOptions();

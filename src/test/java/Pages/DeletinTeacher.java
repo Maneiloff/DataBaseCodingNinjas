@@ -7,9 +7,9 @@ import utilities.utilities.Driver;
 
 import java.net.MalformedURLException;
 
-public class DeletinTeacherUlku {
+public class DeletinTeacher {
 
-   public DeletinTeacherUlku() throws MalformedURLException {
+   public DeletinTeacher() throws MalformedURLException {
        PageFactory.initElements(Driver.getDriver(),this);
 
    }

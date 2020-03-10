@@ -1,12 +1,10 @@
-package step_definitions.Deletingteacher_StepDefinitions_Ulku;
+package step_definitions.Deletingteacher_StepDefinitions;
 
-import Pages.DeletinTeacherUlku;
+import Pages.DeletinTeacher;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.utilities.Driver;
 
@@ -15,7 +13,7 @@ import java.net.MalformedURLException;
 public class DeletingTeacherwithGridview {
 
 
-DeletinTeacherUlku deletinTeacherUlku=new DeletinTeacherUlku();
+DeletinTeacher deletinTeacherUlku=new DeletinTeacher();
     WebDriverWait wait = new WebDriverWait(Driver.getDriver(),30);
 
     public DeletingTeacherwithGridview() throws MalformedURLException {
