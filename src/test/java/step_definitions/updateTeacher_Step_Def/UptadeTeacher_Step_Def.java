@@ -86,8 +86,12 @@ public class UptadeTeacher_Step_Def {
 
 //the user enters email, mobileNumber and salary
     @Then("the user enters first name, email, mobileNumber and salary")
-    public void the_user_enters_first_name_email_mobileNumber_and_salary(DataTable login) throws InterruptedException {
-        List<List<String>> data = login.asLists();
+    public void the_user_enters_first_name_email_mobileNumber_and_salary(List<String> login) throws InterruptedException {
+        //List<List<String>> data = login.asLists();
+
+        System.out.println(login.get(0));
+        System.out.println(login.get(1));
+        System.out.println(login.get(2));
 
 //        uptadeTeacher.FirstName.click();
 //        uptadeTeacher.FirstName.clear();
@@ -95,16 +99,16 @@ public class UptadeTeacher_Step_Def {
 
         uptadeTeacher.email.click();
         uptadeTeacher.email.clear();
-        uptadeTeacher.email.sendKeys(data.get(0).get(0));
+        uptadeTeacher.email.sendKeys(login.get(0));
 
         uptadeTeacher.mobileNumber.click();
         uptadeTeacher.mobileNumber.clear();
-        uptadeTeacher.mobileNumber.sendKeys(data.get(0).get(1));
+        uptadeTeacher.mobileNumber.sendKeys(login.get(1));
         Thread.sleep(2000);
         uptadeTeacher.salary.click();
         uptadeTeacher.salary.clear();
         Thread.sleep(2000);
-        uptadeTeacher.salary.sendKeys(data.get(0).get(2));
+        uptadeTeacher.salary.sendKeys(login.get(2));
         Thread.sleep(2000);
         uptadeTeacher.submitButton.click();
         Thread.sleep(2000);
